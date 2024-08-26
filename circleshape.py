@@ -20,3 +20,10 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # sub-classes must override
         pass
+
+    def collision_check(self, other_object):
+        object_position = other_object.position
+
+        distance = self.position.distance_to(object_position)
+
+        return self.radius + other_object.radius >= distance
